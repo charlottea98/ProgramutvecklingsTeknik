@@ -1,6 +1,6 @@
 package Lab1;
 
-// this is a comment
+// this is a commentt4
 
 import javax.swing.*;
 import java.awt.*;
