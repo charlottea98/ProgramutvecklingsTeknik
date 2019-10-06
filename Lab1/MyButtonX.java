@@ -12,9 +12,8 @@ public class MyButtonX extends JButton implements ActionListener {
     private Color c2;
     private String s1;
     private String s2;
-    static String[] names = {"jag", "är", "bäst", "hon", "ursäkta", "hallå", "törstig", "DRY", "K", "Bruuhh",
-            "HAHAHA", "tveksamt", "ughhhhh"};
-
+    private static Color[] colors = {Color.cyan, Color.green, Color.red, Color.black, Color.magenta, Color.white, Color.blue,
+            Color.orange, Color.pink, Color.yellow};
 
     public static void main(String[] args) {
 
@@ -23,14 +22,14 @@ public class MyButtonX extends JButton implements ActionListener {
         String[] words = new String[2*j];
 
         for (String t:args
-             ) {
-            if (t != args[0]){
+        ) {
+            if (!t.equals(args[0])){
                 words[k++] = t;
             }
         }
 
         JFrame window = new JFrame("Knapp");
-        GridLayout layout = new GridLayout((int)(Math.floor(j/2)), (int)(Math.floor(j/2)));
+        GridLayout layout = new GridLayout((int)(Math.ceil(j/2)), (int)(Math.ceil(j/2)));
 
         window.setSize(300, 200);
         window.setLayout(layout);
@@ -38,8 +37,11 @@ public class MyButtonX extends JButton implements ActionListener {
         int counter = 0;
 
         for (int i = 0; i < (j); i++) {
-            MyButtonX btn = new MyButtonX(Color.magenta, Color.cyan, words[counter],
-            words[counter+1]);
+            int randomnumber = (int)(Math.random()*(colors.length));
+            int randomnumber2 = (int)(Math.random()*(colors.length));
+
+            MyButtonX btn = new MyButtonX((colors[randomnumber]), (colors[randomnumber2]), words[counter],
+                    words[counter+1]);
             btn.addActionListener(btn);
             window.add(btn);
             counter = counter + 2;
@@ -62,7 +64,7 @@ public class MyButtonX extends JButton implements ActionListener {
     }
 
     private void toggleState(){
-        if (this.getBackground() == this.c1){
+        if (this.getBackground() == this.c1 && this.getText().equals(this.s1)){
             this.setBackground(this.c2);
             this.setText(this.s2);
             this.setForeground(this.c1);
@@ -75,4 +77,3 @@ public class MyButtonX extends JButton implements ActionListener {
         this.setOpaque(true);
     }
 }
-
