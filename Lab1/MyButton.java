@@ -13,7 +13,7 @@ public class MyButton extends JButton implements ActionListener {
 
     public static void main(String[] args) {
 
-        JFrame window = new JFrame("Knapp");
+        JFrame window = new JFrame("Mood och Lotta");
         GridLayout layout = new GridLayout(0,2);
 
         window.setSize(300, 200);
