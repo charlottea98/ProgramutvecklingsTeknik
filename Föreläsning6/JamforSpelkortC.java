@@ -29,7 +29,7 @@ import java.util.*;class JamforSpelkortC {
         System.out.print(kort3 + "\t" + kort4 + "  \t" + kort3.compareTo(kort4));
         System.out.println();
 
-        System.out.println(Integer.MAX_VALUE);
-        System.out.println(Integer.MIN_VALUE);
+        //  System.out.println(kort1.hashCode());
+        //  System.out.println(kort2.hashCode());
     }
 }

@@ -1,0 +1,1 @@
+Class HasMap<K,V>, där K=key och V=value. K och V är olika klasser.
