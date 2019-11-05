@@ -31,8 +31,7 @@ public class FifteenModel implements Boardgame {
         }
 
         for (int i = 0; i < 10;) {
-            move((int)(Math.random()*4), (int)(Math.random()*4));
-            if (currentMessage.equals("OK")) {
+            if (move((int)(Math.random()*4), (int)(Math.random()*4))) {
                 i++;
             }
         }
