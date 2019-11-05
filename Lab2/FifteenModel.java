@@ -8,7 +8,6 @@ public class FifteenModel implements Boardgame {
 
     FifteenModel() {
         int counter = 1;
-
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 if (counter<10) {
@@ -25,12 +24,10 @@ public class FifteenModel implements Boardgame {
                     board[i][j] = Integer.toString(counter);
                     counter++;
                 }
-
             }
-
         }
 
-        for (int i = 0; i < 10;) {
+        for (int i = 0; i < 10000;) {
             if (move((int)(Math.random()*4), (int)(Math.random()*4))) {
                 i++;
             }
