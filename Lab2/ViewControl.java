@@ -32,8 +32,8 @@ public class ViewControl extends JFrame implements ActionListener {
     }
 
     private void create() {
-        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.setSize(new Dimension(600, 600));
+        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.setVisible(true);
 
         this.create_btns();
@@ -82,7 +82,7 @@ public class ViewControl extends JFrame implements ActionListener {
 class Square extends JButton {
     int y;
     int x;
-    private String text;
+    //private String text;
 
     Square(String text, int x, int y) {
         setText(text);

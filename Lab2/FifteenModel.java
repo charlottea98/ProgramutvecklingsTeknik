@@ -88,7 +88,16 @@ public class FifteenModel implements Boardgame {
         catch (ArrayIndexOutOfBoundsException e) {
             ;
         }
-        currentMessage = "Move not possible";
+        try {
+            if (board[i][j].equals(board[iemp][jemp])) {
+                currentMessage = "Don't choose the empty one";
+                return false;
+            }
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+            ;
+        }
+        currentMessage = "Please choose a position next to the empty one!";
         return false;
     }
 
@@ -104,30 +113,8 @@ public class FifteenModel implements Boardgame {
 
         // Gör ett object som är fifteenmodel
 
-        FifteenModel femtonspel = new FifteenModel();
+        //FifteenModel femtonspel = new FifteenModel();
 
-        int counter = 1;
-
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                if (counter<10) {
-                    femtonspel.board[i][j] = " " + counter;
-                    counter++;
-                }
-                else if (counter==16){
-                    femtonspel.board[i][j] = "  ";
-                    femtonspel.iemp = i;
-                    femtonspel.jemp = j;
-                    counter++;
-                }
-                else {
-                    femtonspel.board[i][j] = Integer.toString(counter);
-                    counter++;
-                }
-
-            }
-
-        }
         /*
         for (int i = 0; i < 10;) {
             femtonspel.move((int)(Math.random()*4), (int)(Math.random()*4));

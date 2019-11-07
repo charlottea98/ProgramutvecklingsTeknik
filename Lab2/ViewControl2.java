@@ -139,7 +139,7 @@ public class ViewControl2 extends JFrame implements ActionListener {
 
     private Boardgame game;
     private int size;
-    private Squares[][] board;
+    private Square[][] board;
     private JLabel mess = new JLabel();
     private JFrame frame;
 
@@ -148,7 +148,7 @@ public class ViewControl2 extends JFrame implements ActionListener {
         this.game = gm;
         this.size = n;
         this.frame = new JFrame();
-        this.board = new Squares[n][n];
+        this.board = new Square[n][n];
         this.frame.setLayout(new GridLayout(n + 1, n));
 
         this.create();
@@ -157,7 +157,7 @@ public class ViewControl2 extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         //new ViewControl2(null, 20);
-        new ViewControl2(new MockObject(), 2);
+        new ViewControl2(null, 20);
 
     }
 
@@ -172,7 +172,7 @@ public class ViewControl2 extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        Squares square = (Squares) e.getSource();
+        Square square = (Square) e.getSource();
         System.out.println("Tryck på knapp " + square.x + " " + square.y);
         this.update();
 
@@ -182,7 +182,7 @@ public class ViewControl2 extends JFrame implements ActionListener {
         //  Create buttons
         for (int i = 0; i < this.size; i++) {
             for (int j = 0; j < this.size; j++) {
-                Squares square = new Squares("", i, j);
+                Square square = new Square("", i, j);
                 this.board[i][j] = square;
                 this.board[i][j].addActionListener(this);
                 this.frame.add(this.board[i][j]);
@@ -202,24 +202,6 @@ public class ViewControl2 extends JFrame implements ActionListener {
                 this.frame.add(this.mess);
             }
         }
-    }
-}
-
-class Squares extends JButton {
-    int y;
-    int x;
-
-    Squares(String text, int x, int y) {
-        setText(text);
-        setBackground(Color.magenta);
-        setOpaque(true);
-
-        this.y = y;
-        this.x = x;
-    }
-
-    public String toString() {
-        return x + "       " + y;
     }
 }
 
