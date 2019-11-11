@@ -1,5 +1,5 @@
 package Lab3;
-//  Gavs in labb instruktioner
+//  Gavs i labb instruktioner
 
 /*******************************************
  OBS! No swedish letters in this program.

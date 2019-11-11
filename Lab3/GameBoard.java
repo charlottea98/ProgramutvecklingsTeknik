@@ -7,7 +7,7 @@ import java.awt.event.*;
 import javax.swing.*;
 class GameBoard extends JPanel {
 
-    private Icon[] icons = {new ImageIcon("/rock.png"),
+    private Icon[] icons = {new ImageIcon("/Users/charlotteandersson/IdeaProjects/Prutten/src/Lab3/rock.png"),
             new ImageIcon("/Users/charlotteandersson/IdeaProjects/Prutten/src/Lab3/paper.png"),
             new ImageIcon("/Users/charlotteandersson/IdeaProjects/Prutten/src/Lab3/scissors.png")};
 

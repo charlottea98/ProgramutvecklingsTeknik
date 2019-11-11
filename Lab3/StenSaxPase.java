@@ -7,14 +7,14 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class RPSModel {
+public class StenSaxPase {
     String hands[];
     Socket sock;
     BufferedReader in;
     PrintWriter out;
     String name;
 
-    public RPSModel(String host, int port, String name){
+    public StenSaxPase(String host, int port, String name){
         this.hands = new String[]{"STEN", "SAX", "PASE"};
         this.sock = getSocket(host, port);
         this.in = getInStream(this.sock);
@@ -24,10 +24,10 @@ public class RPSModel {
     }
 
 
-    public String compare(String compHand, String playerHand){
-        if(!compHand.equals(playerHand)){
+    public String compare(String computerhand, String playerHand){
+        if(!computerhand.equals(playerHand)){
             if(playerHand.equals("STEN")){
-                if(compHand.equals("PASE")){
+                if(computerhand.equals("PASE")){
                     return "LOSS";
                 }
                 else{
@@ -36,7 +36,7 @@ public class RPSModel {
             }
 
             if(playerHand.equals("SAX")){
-                if(compHand.equals("STEN")){
+                if(computerhand.equals("STEN")){
                     return "LOSS";
                 }
                 else{
@@ -45,7 +45,7 @@ public class RPSModel {
             }
 
             if(playerHand.equals("PASE")) {
-                if (compHand.equals("SAX")) {
+                if (computerhand.equals("SAX")) {
                     return "LOSS";
                 } else {
                     return "WIN";
@@ -58,7 +58,7 @@ public class RPSModel {
         return null;
     }
 
-    public String getCompHand(BufferedReader in){
+    public String getComputer(BufferedReader in){
         try{
             return in.readLine();
         }
@@ -106,29 +106,30 @@ public class RPSModel {
         try {
             this.out.println(this.name);
             this.out.flush();
+            //System.out.println(this.in.readLine());
             this.in.readLine();
         }
         catch(IOException e) {
-
+            System.err.println(e);
         }
     }
 
 
     public static void main(String[] args){
-        RPSModel model = new RPSModel("localhost", 4713, "Lotta och Mood");
+        StenSaxPase model = new StenSaxPase("localhost", 4713, "Lotta och Mood");
         try{
             BufferedReader in = new BufferedReader(new InputStreamReader(model.sock.getInputStream()));
             PrintWriter ut = new PrintWriter(model.sock.getOutputStream());
 
             Scanner inputHand = new Scanner(System.in);
-            String compHand;
+            String computerhand;
             while(true){
-                String hand = model.hands[inputHand.nextInt()];
-                ut.println(hand);
+                String playerhand = model.hands[inputHand.nextInt()];
+                ut.println(playerhand);
                 ut.flush();
-                compHand = model.getCompHand(in);
-                System.err.println("P:" + hand + "  " + "CU: " + compHand);
-                System.err.println(model.compare(compHand, hand));
+                computerhand = model.getComputer(in);
+                System.out.println("P:" + playerhand + "  " + "CU: " + computerhand);
+                System.out.println(model.compare(computerhand, playerhand));
             }
         }
         catch(IOException e){
