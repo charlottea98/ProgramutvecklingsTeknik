@@ -90,14 +90,14 @@ public class FifteenModel implements Boardgame {
         }
         try {
             if (board[i][j].equals(board[iemp][jemp])) {
-                currentMessage = "Don't choose the empty one";
+                currentMessage = "Not the empty one";
                 return false;
             }
         }
         catch (ArrayIndexOutOfBoundsException e) {
             ;
         }
-        currentMessage = "Please choose a position next to the empty one!";
+        currentMessage = "Move not possible";
         return false;
     }
 

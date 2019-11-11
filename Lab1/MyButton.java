@@ -11,6 +11,7 @@ public class MyButton extends JButton implements ActionListener {
     private String s1;
     private String s2;
 
+
     public static void main(String[] args) {
 
         JFrame window = new JFrame("Mood och Lotta");
@@ -35,7 +36,7 @@ public class MyButton extends JButton implements ActionListener {
         toggleState();
     }
 
-    private MyButton(Color c1, Color c2, String s1, String s2){
+    public MyButton(Color c1, Color c2, String s1, String s2){
         this.c1 = c1;
         this.c2 = c2;
         this.s1 = s1;

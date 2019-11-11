@@ -13,7 +13,7 @@ public class ViewControl extends JFrame implements ActionListener {
     private JLabel mess = new JLabel();
     private JFrame frame;
 
-    private ViewControl(Boardgame gm, int n) {
+    ViewControl(Boardgame gm, int n) {
         //  Constructor
         this.game = gm;
         this.size = n;

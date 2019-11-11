@@ -157,7 +157,7 @@ public class ViewControl2 extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         //new ViewControl2(null, 20);
-        new ViewControl2(null, 20);
+        new ViewControl2(null, 2);
 
     }
 
@@ -172,10 +172,10 @@ public class ViewControl2 extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
+        //   This is where move is performed
         Square square = (Square) e.getSource();
         System.out.println("Tryck på knapp " + square.x + " " + square.y);
         this.update();
-
     }
 
     private void create_btns() {

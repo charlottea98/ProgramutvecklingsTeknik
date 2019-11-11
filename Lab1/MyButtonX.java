@@ -12,7 +12,7 @@ public class MyButtonX extends JButton implements ActionListener {
     private Color c2;
     private String s1;
     private String s2;
-    private static Color[] colors = {Color.cyan, Color.green, Color.red, Color.black, Color.magenta, Color.white, Color.blue,
+    private static Color[] colors = {Color.cyan, Color.green, Color.red, Color.black, Color.magenta, Color.blue,
             Color.orange, Color.pink, Color.yellow};
 
     public static void main(String[] args) {
