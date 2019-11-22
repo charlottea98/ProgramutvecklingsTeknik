@@ -4,7 +4,7 @@ public class NonBinary extends Human {
     private String name;
     private String gender;
 
-    NonBinary(String name) {
+    protected NonBinary(String name) {
         this.name = name;
         this.gender = "icke-binär";
     }

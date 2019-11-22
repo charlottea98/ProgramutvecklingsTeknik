@@ -1,10 +1,10 @@
 package Lab4FactoryMethod;
 
-public class Woman extends Human{
+class Woman extends Human{
     String name;
     String gender;
 
-    Woman(String name) {
+    protected Woman(String name) {
         this.name = name;
         this.gender = "Kvinna";
     }

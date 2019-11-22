@@ -11,7 +11,11 @@ public class Main {
         Human h = new Human(){};
         System.out.println(h);
         NonBinary Kevin = new NonBinary("Kevin");
+        Woman Kevin2 = new Woman("Kevin");
+        Man Kevin3 = new Man("Kevin");
         System.out.println(Kevin);
+        System.out.println(Kevin2);
+        System.out.println(Kevin3);
 
     }
 }
