@@ -1,11 +1,11 @@
-package Lab4FactoryMethod;
+package Lab4.Lab4FactoryMethod;
 
 public class NonBinary extends Human {
     private String name;
     private String gender;
 
-    protected NonBinary(String name) {
-        this.name = name;
+    protected NonBinary() {
+        this.name = "Billie";
         this.gender = "icke-binär";
     }
     public String toString() {

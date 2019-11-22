@@ -5,19 +5,19 @@ package Lab4;
 import java.util.ArrayList;
 
 public class Composite extends Component {
-    public ArrayList<Component> children = new ArrayList<>();
+    private ArrayList<Component> children = new ArrayList<>();
 
-    Composite(String name, int weight) {
+    private Composite(String name, int weight) {
         this.name = name;
         this.weight = weight;
     }
 
-    @Override
+
     public void Add(Component c) {
         children.add(c);
     }
 
-    @Override
+
     public void Remove(Component c) {
         children.remove(c);
     }
@@ -46,14 +46,6 @@ public class Composite extends Component {
         return currentWeight;
     }
 
-    @Override
-    public int getSize() {
-        int currSize = 1;
-        for(int i = 0; i < this.children.size(); i ++){
-            currSize += this.children.get(i).getSize();
-        }
-        return currSize;
-    }
 
     @Override
     public String toString() {
@@ -87,15 +79,19 @@ public class Composite extends Component {
         pase.Add(tandborste);
         pase.Add(tandkram);
         resvaska.Add(pase);
+        resvaska.Add(neccessar);
 
 
         System.out.println("Weight: " + resvaska.getWeight());
         System.out.println(resvaska);
 
         System.out.println();
+        resvaska.Display(1);
 
         resvaska.Remove(pase);
         System.out.println("Weight: " + resvaska.getWeight());
         System.out.println(resvaska);
+
+
     }
 }

@@ -1,5 +1,5 @@
 package Lab4;
-//  Abstract
+//  Interface
 
 abstract class Component {
 
@@ -15,10 +15,7 @@ abstract class Component {
 
     }
 
-    public abstract void Add(Component c);
-    public abstract void Remove(Component c);
     public abstract void Display(int depth);
     public abstract int getWeight();
-    public abstract int getSize();
     public abstract String toString();
 }
