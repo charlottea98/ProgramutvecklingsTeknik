@@ -19,5 +19,6 @@ abstract class Component {
     public abstract void Remove(Component c);
     public abstract void Display(int depth);
     public abstract int getWeight();
+    public abstract int getSize();
     public abstract String toString();
 }

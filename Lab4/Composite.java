@@ -5,7 +5,7 @@ package Lab4;
 import java.util.ArrayList;
 
 public class Composite extends Component {
-    private ArrayList<Component> children = new ArrayList<>();
+    public ArrayList<Component> children = new ArrayList<>();
 
     Composite(String name, int weight) {
         this.name = name;
@@ -47,6 +47,15 @@ public class Composite extends Component {
     }
 
     @Override
+    public int getSize() {
+        int currSize = 1;
+        for(int i = 0; i < this.children.size(); i ++){
+            currSize += this.children.get(i).getSize();
+        }
+        return currSize;
+    }
+
+    @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append(this.name);
@@ -82,7 +91,7 @@ public class Composite extends Component {
 
         System.out.println("Weight: " + resvaska.getWeight());
         System.out.println(resvaska);
-        
+
         System.out.println();
 
         resvaska.Remove(pase);

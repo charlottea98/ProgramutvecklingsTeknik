@@ -37,4 +37,9 @@ public class Leaf extends Component{
     public String toString() {
         return name;
     }
+
+    @Override
+    public int getSize() {
+        return 1;
+    }
 }
