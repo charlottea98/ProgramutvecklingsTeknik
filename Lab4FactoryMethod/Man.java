@@ -4,7 +4,7 @@ public class Man extends Human{
     String name;
     String gender;
 
-    Man() {
+    protected Man(String name) {
         this.name = "Magnus";
         this.gender = "man";
     }
