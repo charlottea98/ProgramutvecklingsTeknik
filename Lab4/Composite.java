@@ -3,8 +3,9 @@ package Lab4;
 //  t.ex. resväska, necessär eller påse
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class Composite extends Component {
+public class Composite extends Component implements Iterable<Component>{
     private ArrayList<Component> children = new ArrayList<>();
 
     private Composite(String name, int weight) {
@@ -12,6 +13,21 @@ public class Composite extends Component {
         this.weight = weight;
     }
 
+    @Override
+    public Iterator<Component> iterator() {
+        Iterator<Component> iterator = new Iterator<Component>() {
+            @Override
+            public boolean hasNext() {
+                return false;
+            }
+
+            @Override
+            public Component next() {
+                return null;
+            }
+        };
+        return iterator;
+    }
 
     public void Add(Component c) {
         children.add(c);

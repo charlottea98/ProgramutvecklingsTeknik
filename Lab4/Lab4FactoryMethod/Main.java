@@ -1,4 +1,4 @@
-package Lab4;
+package Lab4.Lab4FactoryMethod;
 
 import Lab4.Lab4FactoryMethod.Human;
 import Lab4.Lab4FactoryMethod.Man;
