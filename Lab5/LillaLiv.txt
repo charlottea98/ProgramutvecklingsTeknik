@@ -1,8 +1,7 @@
 <Biosfär namn="Liv"> är allt som fortplantar sej
 <Rike namn="Växter"> kan inte förflytta sej
-<Något namn="Något"> är något
-</något>
 </Rike>
+<Något>
 <Rike namn="Djur"> kan förflytta sej
 </Rike>
 <Rike namn="Svampar"> är varken djur eller växter

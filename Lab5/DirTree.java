@@ -13,6 +13,7 @@ import javax.swing.tree.TreePath;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.sax.SAXSource;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -60,14 +61,12 @@ class DirTree extends TreeFrame {
         }
         catch (ParserConfigurationException e){
             System.out.println(1);
-
         }
         catch (SAXException e){
-            System.out.println(2);
-
+            System.out.println("Fel i xml taggar");
         }
-        catch (IOException e){
-            System.out.println(3);
+        catch (IOException e) {
+            System.out.println("Filen stämmer inte");
         }
 
     }
@@ -95,6 +94,7 @@ class DirTree extends TreeFrame {
                 map.put(child, element);
 
                 buildTree(element, child);
+
             }
         }
     }
@@ -103,16 +103,23 @@ class DirTree extends TreeFrame {
         if ( p == null )
             return;
 
-        Element element = map.get(p.getLastPathComponent());
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode)p.getLastPathComponent();
+
+        Element element = map.get(node);
         String text = element.getTagName() + ": " + p.getLastPathComponent().toString() +
                 element.getFirstChild().getTextContent();
 
-        JOptionPane.showMessageDialog( this, text);
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("Men allt som är " + node);
+
+        while (node.getParent()!=null){
+            stringBuilder.append(" är " + node.getParent());
+            node = (DefaultMutableTreeNode)node.getParent();
+        }
+
+        JOptionPane.showMessageDialog( this, text + "\n" + stringBuilder);
 
     }
-
-
-
 }
 
 
