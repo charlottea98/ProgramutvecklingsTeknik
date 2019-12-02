@@ -84,7 +84,7 @@ class DirTree extends TreeFrame {
     void buildTree(Element e, DefaultMutableTreeNode parent){
 
         NodeList nodeList = e.getChildNodes();
-        //System.out.println(nodeList);
+
         for (int i = 0; i < nodeList.getLength(); i++) {
             Node n = nodeList.item(i);
             if (n.getNodeType() == Node.ELEMENT_NODE) {
