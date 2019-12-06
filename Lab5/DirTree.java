@@ -13,7 +13,6 @@ import javax.swing.tree.TreePath;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.sax.SAXSource;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -26,9 +25,9 @@ import java.util.Map;
 
 class DirTree extends TreeFrame {
 
-    static String directory;
-    static Document doc;
-    static Map<DefaultMutableTreeNode, Element> map = new HashMap<>();
+    private static String directory;
+    private static Document doc;
+    private static Map<DefaultMutableTreeNode, Element> map = new HashMap<>();
 
     DirTree( ){
         super();
@@ -36,7 +35,6 @@ class DirTree extends TreeFrame {
     }
 
     void initTree() {
-
         root = new DefaultMutableTreeNode(directory);
         treeModel = new DefaultTreeModel( root );
         tree = new JTree( treeModel );
@@ -47,18 +45,23 @@ class DirTree extends TreeFrame {
 
     public static void main(String[] args) {
         if(args.length>0) directory=args[0];
-        //directory= (String)("LillaLiv.txt");
+        else directory= ("Liv.xml");
 
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); //Defines a factory API that enables
+        // applications to obtain a parser that produces DOM object trees from XML documents.
+        // Obtain a new instance of a DocumentBuilderFactory.
         try {
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            doc = builder.parse("/Users/charlotteandersson/IdeaProjects/Prutten/src/Lab5/" + directory);
+            DocumentBuilder builder = factory.newDocumentBuilder(); //Defines the API to obtain DOM Document instances
+            // from an XML document. Using this class, an application programmer can obtain a Document from XML.
+            // Using newDocumentBuilder XML can be parsed from a variety of input sources.
+            doc = builder.parse(directory);
+            // Parse the content of the given file as an XML document and return a new DOM Document object.
 
             Element element = (Element) doc.getFirstChild();
             directory = element.getAttribute("namn");
             new DirTree();
-
         }
+
         catch (ParserConfigurationException e){
             System.out.println(1);
         }
@@ -71,7 +74,7 @@ class DirTree extends TreeFrame {
 
     }
 
-    void buildTree(){
+    private void buildTree(){
 
         Element element = (Element) doc.getFirstChild();
         //System.out.println(element +"       " + root);
@@ -80,7 +83,7 @@ class DirTree extends TreeFrame {
 
     }
 
-    void buildTree(Element e, DefaultMutableTreeNode parent){
+    private void buildTree(Element e, DefaultMutableTreeNode parent){
 
         NodeList nodeList = e.getChildNodes();
 
