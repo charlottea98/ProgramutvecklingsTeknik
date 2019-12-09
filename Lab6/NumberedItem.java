@@ -11,7 +11,7 @@ public class NumberedItem<T> implements Comparable<NumberedItem<T>> {
         } else {
             this.heltal = heltal;
         }
-
+        this.generic = generic;
     }
 
     @Override
