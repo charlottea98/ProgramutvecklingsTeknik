@@ -1,22 +1,25 @@
+package Lab6;
+/*
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class VecTreeTest {
+public class VecTreeBTest {
 
     @Test
     public void testMethods() {
-        VecTree tom = new VecTree();
+        VecTreeB tom = new VecTreeB();
         assertEquals(0, tom.size());
-        assertEquals(-1, tom.minindex());
-        assertEquals(-1, tom.maxindex());
+        assertEquals(-1, tom.minIndex());
+        assertEquals(-1, tom.maxIndex());
         assertNull(tom.get(5));
         assertTrue(tom.sortedValues().isEmpty());
         assertEquals(0, tom.toArray().length);
     }
+    
     @Test
     public void addTest() {
-        VecTree spec = new VecTree();
+        VecTreeB spec = new VecTreeB();
         spec.add(3, "Hej");
         assertEquals(1, spec.size());
 
@@ -32,13 +35,13 @@ public class VecTreeTest {
         spec.add(8, "Kaffe");
         assertEquals(4, spec.size());
 
-        assertEquals(1, spec.minindex());
-        assertEquals(8, spec.maxindex());
+        assertEquals(1, spec.minIndex());
+        assertEquals(8, spec.maxIndex());
     }
 
     @Test
     public void ospecTest() {
-        VecTree ospec = new VecTree();
+        VecTreeB ospec = new VecTreeB();
 
         ospec.add(5);
         assertEquals(1, ospec.size());
@@ -56,12 +59,12 @@ public class VecTreeTest {
         assertEquals(4, ospec.size());
         assertEquals(8, ospec.get(3));
 
-        assertNull(get(9));
+        assertNull(ospec.get(9));
     }
 
     @Test
     public void removeTest() {
-        VecTree rem = new VecTree();
+        VecTreeB rem = new VecTreeB();
 
         rem.add("Rosa");
         rem.add("Black");
@@ -75,3 +78,5 @@ public class VecTreeTest {
         assertNull(rem.get(1));
     }
 }
+
+ */
