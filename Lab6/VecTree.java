@@ -2,17 +2,16 @@ package Lab6;
 
 import java.util.*;
 
-public class VecTree implements SparseVec {
+public class VecTree<E extends Comparable<E>> implements SparseVec<E> {
 
-    TreeMap<Integer, Comparable> treeMap;
+    TreeMap<Integer, E> treeMap;
 
     VecTree(){
         this.treeMap = new TreeMap<>();
-
     }
 
     @Override
-    public void add(Comparable elem) {
+    public void add(E elem) {
         int counter = 0;
         while(true){
             if(!this.treeMap.containsKey(counter)){
@@ -24,7 +23,7 @@ public class VecTree implements SparseVec {
     }
 
     @Override
-    public void add(int pos, Comparable elem) {
+    public void add(int pos, E elem) {
         if (pos<0){
             this.treeMap.put(0, elem);
         }
@@ -34,7 +33,7 @@ public class VecTree implements SparseVec {
     }
 
     @Override
-    public int indexOf(Comparable elem) {
+    public int indexOf(E elem) {
         int number = -1;
         for (Object object:this.treeMap.keySet().toArray()) {
             if (this.treeMap.get(object).equals(elem)){
@@ -52,7 +51,7 @@ public class VecTree implements SparseVec {
     }
 
     @Override
-    public void removeElem(Comparable elem) {
+    public void removeElem(E elem) {
         int index = this.indexOf(elem);
         this.removeAt(index);
     }
@@ -86,13 +85,14 @@ public class VecTree implements SparseVec {
     public String toString() {
         StringBuilder string = new StringBuilder();
         for(int i: this.treeMap.keySet()){
-            string.append(i +" : "+ this.treeMap.get(i).toString() + "\n");
+            String text = i + " : " + this.treeMap.get(i).toString() + "\n";
+            string.append(text);
         }
         return string.toString();
     }
 
     @Override
-    public Comparable get(int pos) {
+    public E get(int pos) {
         return this.treeMap.get(pos);
     }
 
@@ -105,17 +105,14 @@ public class VecTree implements SparseVec {
         return arrayList;
     }
 
-
     @Override
-    public List sortedValues() {
-        List<Comparable> list= new ArrayList<>(this.treeMap.values());
+    public List<E> sortedValues() {
+        List<E> list= new ArrayList<>(this.treeMap.values());
 
         int index = 0;
         for (int i = 0; i < list.size(); i++) {
-            Comparable elem = list.get(index);
+            E elem = list.get(index);
             if (elem.compareTo(list.get(index+1))>=1){
-                //System.out.println(elem + "     " + list.get(i+1));
-                //System.out.println(list);
                 list.set(index, list.get(index+1));
                 list.set(index+1, elem);
                 i=0;
@@ -130,9 +127,9 @@ public class VecTree implements SparseVec {
     }
 
     public static void main(String[] args) {
-        VecTree vecTree = new VecTree();
+        VecTree<Integer> vecTree = new VecTree<>();
 
-        vecTree.add(2, 2);
+        vecTree.add(2, 5);
 
         vecTree.add(5, 5);
 
@@ -141,6 +138,7 @@ public class VecTree implements SparseVec {
         vecTree.add(7, 7);
 
         vecTree.add(4, 4);
+        vecTree.add(5);
 
         System.out.println(vecTree.toString());
         System.out.println();
@@ -151,9 +149,5 @@ public class VecTree implements SparseVec {
         System.out.println();
 
         System.out.println(vecTree.sortedValues());
-
-        System.out.println(vecTree.size());
-        System.out.println(vecTree.treeMap.keySet().size());
     }
-
 }
