@@ -5,13 +5,15 @@ import javax.swing.*;
 
 public class ArrowTest extends JPanel implements ActionListener, KeyListener {
     Timer t = new Timer(10, this);
-    double x = 0, y=0, velx=0, vely=0;
+    int x = 0, y=0, velx=0, vely=0;
+    int keyEvent;
 
     public ArrowTest(){
         t.start();
         addKeyListener(this);
         setFocusable(true);
         setFocusTraversalKeysEnabled(false);
+        this.keyEvent = 0;
     }
 
     public void paintComponent(Graphics g){
@@ -40,28 +42,30 @@ public class ArrowTest extends JPanel implements ActionListener, KeyListener {
             vely = 0;
             y = 290;
         }
+
         x += velx;
         y += vely;
         repaint();
     }
     public void up(){
-        vely = -1.5;
+        vely = -1;
         velx = 0;
     }
     public void down(){
-        vely = 1.5;
+        vely = 1;
         velx = 0;
     }
     public void left(){
-        velx = -1.5;
+        velx = -1;
         vely = 0;
     }
     public void right(){
-        velx = 1.5;
+        velx = 1;
         vely = 0;
     }
     public void keyPressed(KeyEvent e){
         int code = e.getKeyCode();
+        this.keyEvent = code;
         if (code==KeyEvent.VK_UP){
             up();
         }
@@ -74,16 +78,18 @@ public class ArrowTest extends JPanel implements ActionListener, KeyListener {
         if (code==KeyEvent.VK_RIGHT){
             right();
         }
-
     }
 
-    public void keyTyped(KeyEvent e){
-
-    }
+    public void keyTyped(KeyEvent e){}
 
     public void keyReleased(KeyEvent e){
-        velx = 0;
-        vely = 0;
+        if (e.getKeyCode()!=this.keyEvent) {
+            velx = 0;
+            vely = 0;
+        }
+        else {
+            keyPressed(e);
+        }
     }
 
     public static void main(String[] args) {
@@ -93,8 +99,5 @@ public class ArrowTest extends JPanel implements ActionListener, KeyListener {
         f.setVisible(true);
         f.setDefaultCloseOperation(f.EXIT_ON_CLOSE);
         f.setSize(400,400);
-
     }
 }
-
-

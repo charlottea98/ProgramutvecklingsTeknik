@@ -12,6 +12,7 @@ public class VecTree<E extends Comparable<E>> implements SparseVec<E> {
 
     @Override
     public void add(E elem) {
+        // hitta första lediga plats
         int counter = 0;
         while(true){
             if(!this.treeMap.containsKey(counter)){
@@ -47,13 +48,12 @@ public class VecTree<E extends Comparable<E>> implements SparseVec<E> {
     @Override
     public void removeAt(int pos) {
         this.treeMap.remove(pos);
-
     }
 
     @Override
     public void removeElem(E elem) {
         int index = this.indexOf(elem);
-        this.removeAt(index);
+        this.removeAt(index);   //testa -1
     }
 
     @Override
@@ -107,7 +107,7 @@ public class VecTree<E extends Comparable<E>> implements SparseVec<E> {
 
     @Override
     public List<E> sortedValues() {
-        List<E> list= new ArrayList<>(this.treeMap.values());
+        List<E> list= new ArrayList<>(this.treeMap.values()); //inga null
 
         int index = 0;
         for (int i = 0; i < list.size(); i++) {
@@ -126,28 +126,4 @@ public class VecTree<E extends Comparable<E>> implements SparseVec<E> {
         return list;
     }
 
-    public static void main(String[] args) {
-        VecTree<Integer> vecTree = new VecTree<>();
-
-        vecTree.add(2, 5);
-
-        vecTree.add(5, 5);
-
-        vecTree.add(1, 1);
-
-        vecTree.add(7, 7);
-
-        vecTree.add(4, 4);
-        vecTree.add(5);
-
-        System.out.println(vecTree.toString());
-        System.out.println();
-
-        for (Object object:vecTree.toArray()) {
-            System.out.println(object);
-        }
-        System.out.println();
-
-        System.out.println(vecTree.sortedValues());
-    }
 }
