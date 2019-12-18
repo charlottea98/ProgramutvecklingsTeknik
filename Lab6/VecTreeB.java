@@ -29,7 +29,7 @@ public class VecTreeB<E extends Comparable<E>> extends TreeMap<Integer, E> imple
     @Override
     public int indexOf(E elem) {
         int number = -1;
-        for (Object object:this.keySet().toArray()) {
+        for (Object object:this.keySet()) {
             if (this.get(object).equals(elem)){
                 number = (int)object;
                 return number;
@@ -126,7 +126,5 @@ public class VecTreeB<E extends Comparable<E>> extends TreeMap<Integer, E> imple
          */
         return list;
     }
-
-
 }
 

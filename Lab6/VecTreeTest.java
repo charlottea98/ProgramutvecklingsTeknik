@@ -16,7 +16,7 @@ public class VecTreeBTest {
         assertTrue(tom.sortedValues().isEmpty());
         assertEquals(0, tom.toArray().length);
     }
-    
+
     @Test
     public void addTest() {
         VecTreeB spec = new VecTreeB();

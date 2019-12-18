@@ -47,6 +47,7 @@ public class ArrowTest extends JPanel implements ActionListener, KeyListener {
         y += vely;
         repaint();
     }
+
     public void up(){
         vely = -1;
         velx = 0;
