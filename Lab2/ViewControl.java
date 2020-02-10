@@ -26,8 +26,9 @@ public class ViewControl extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new ViewControl(new FifteenModel(), 4);
+        //new ViewControl(new FifteenModel(), 4);
         //new ViewControl(new MockObject(), 2);
+        new ViewControl(new TicTacToe(), 3);
 
     }
 
@@ -86,7 +87,7 @@ class Square extends JButton {
 
     Square(String text, int x, int y) {
         setText(text);
-        setBackground(Color.magenta);
+        setBackground(Color.CYAN);
         setOpaque(true);
 
         this.y = y;
