@@ -26,7 +26,8 @@ public class TicTacToe implements Boardgame{
 
         if (phase == "placeMarks"){
             if (board[i][j] !=" "){
-                currentMessage = "Move not Possible";
+                currentMessage = "Ogiltigt drag, välj en annan ruta";
+
                 return false;
             }
             if (playerTurn == "X"){
@@ -68,7 +69,7 @@ public class TicTacToe implements Boardgame{
 
         }
 
-        currentMessage = "Move not Possible";
+        currentMessage = "Ogiltigt drag, välj en annan ruta";
         return false;
         
     }
