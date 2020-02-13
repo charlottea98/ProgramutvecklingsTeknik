@@ -1,5 +1,4 @@
 package Lab2;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,25 +19,20 @@ public class ViewControl extends JFrame implements ActionListener {
         this.frame = new JFrame();
         this.board = new Square[n][n];
         this.frame.setLayout(new GridLayout(n+1, n));
-
         this.create();
-
     }
 
     public static void main(String[] args) {
         //new ViewControl(new FifteenModel(), 4);
         //new ViewControl(new MockObject(), 2);
         new ViewControl(new TicTacToe(), 3);
-
     }
 
     private void create() {
         this.frame.setSize(new Dimension(600, 600));
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.setVisible(true);
-
         this.create_btns();
-
     }
 
     public void actionPerformed(ActionEvent e){
@@ -59,10 +53,8 @@ public class ViewControl extends JFrame implements ActionListener {
                 this.board[i][j] = square;
                 this.board[i][j].addActionListener(this);
                 this.frame.add(this.board[i][j]);
-
                 this.mess.setText("Welcome");
                 this.frame.add(this.mess);
-
             }
         }
     }
@@ -84,12 +76,10 @@ class Square extends JButton {
     int y;
     int x;
     //private String text;
-
     Square(String text, int x, int y) {
         setText(text);
         setBackground(Color.CYAN);
         setOpaque(true);
-
         this.y = y;
         this.x = x;
     }
